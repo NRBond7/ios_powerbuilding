@@ -20,19 +20,45 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dumbbell" translatesAutoresizingMaskIntoConstraints="NO" id="iBM-Be-u8u" userLabel="Launch Icon">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te5-58-NEM">
+                                <rect key="frame" x="148" y="591" width="79" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="W6n-Pg-HSW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="AKH-ke-LCM" kind="show" id="Kn7-BN-Ymd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iBM-Be-u8u" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0jY-KS-shi"/>
+                            <constraint firstItem="Te5-58-NEM" firstAttribute="centerX" secondItem="iBM-Be-u8u" secondAttribute="centerX" id="Gw5-z3-MaM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Te5-58-NEM" secondAttribute="bottom" constant="46" id="J4I-JH-ZyD"/>
                             <constraint firstItem="iBM-Be-u8u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="KN1-cB-0xV"/>
                             <constraint firstItem="iBM-Be-u8u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yjo-aj-eYH"/>
                             <constraint firstItem="iBM-Be-u8u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="249" id="kzw-RN-E3o"/>
+                            <constraint firstItem="Te5-58-NEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="148" id="zmJ-8p-v88"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="ODd-XJ-8GI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LoginViewController" id="AKH-ke-LCM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i4K-at-ZQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="31"/>
         </scene>
     </scenes>
     <resources>

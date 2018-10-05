@@ -13,6 +13,8 @@
 		6D4590F82167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */; };
 		6D4590FA2167A6F5001DCB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590F92167A6F5001DCB56 /* Assets.xcassets */; };
 		6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */; };
+		6DED09E52167B817007B9CFB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E42167B817007B9CFB /* Login.storyboard */; };
+		6DED09E72167B831007B9CFB /* DailyWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		6D4590F92167A6F5001DCB56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4590FC2167A6F5001DCB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4590FE2167A6F5001DCB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DED09E42167B817007B9CFB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyWorkout.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */,
 				6D4590FE2167A6F5001DCB56 /* Info.plist */,
 				6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */,
+				6DED09E42167B817007B9CFB /* Login.storyboard */,
+				6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */,
 			);
 			path = PowerBuilding531;
 			sourceTree = "<group>";
@@ -125,6 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DED09E72167B831007B9CFB /* DailyWorkout.storyboard in Resources */,
+				6DED09E52167B817007B9CFB /* Login.storyboard in Resources */,
 				6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */,
 				6D4590FA2167A6F5001DCB56 /* Assets.xcassets in Resources */,
 				6D4590F52167A6F3001DCB56 /* Main.storyboard in Resources */,
