@@ -579,6 +579,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Performance
   - MaterialComponents
+  - "MaterialComponents/Buttons+ButtonThemer"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -631,6 +632,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: b846dbf5c514a2722f162dcc518069d92c7d3dd0
+PODFILE CHECKSUM: c199b6223e56d0d85b755e5a914ac162a7733a05
 
 COCOAPODS: 1.5.3

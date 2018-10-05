@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0003B00D1AA56CDA6CFA66 /* libPods-PowerBuilding531.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5527AA3C706DFCD89CE0D2 /* libPods-PowerBuilding531.a */; };
 		6D4590F02167A6F3001DCB56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */; };
 		6D4590F22167A6F3001DCB56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590F12167A6F3001DCB56 /* ViewController.swift */; };
 		6D4590F52167A6F3001DCB56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590F32167A6F3001DCB56 /* Main.storyboard */; };
 		6D4590F82167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */; };
 		6D4590FA2167A6F5001DCB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590F92167A6F5001DCB56 /* Assets.xcassets */; };
 		6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */; };
+		6D59327B2167EDA900C3A7BC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59327A2167EDA900C3A7BC /* LoginViewController.swift */; };
 		6DED09E52167B817007B9CFB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E42167B817007B9CFB /* Login.storyboard */; };
 		6DED09E72167B831007B9CFB /* DailyWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */; };
 		6DED09E92167D61A007B9CFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.debug.xcconfig"; sourceTree = "<group>"; };
+		1AD4CC2E053C4F6B5221B9DD /* Pods-PowerBuilding531.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.release.xcconfig"; sourceTree = "<group>"; };
 		6D4590EC2167A6F3001DCB56 /* PowerBuilding531.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerBuilding531.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4590F12167A6F3001DCB56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,10 +30,12 @@
 		6D4590F92167A6F5001DCB56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4590FC2167A6F5001DCB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4590FE2167A6F5001DCB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D59327A2167EDA900C3A7BC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6DED09E42167B817007B9CFB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyWorkout.storyboard; sourceTree = "<group>"; };
 		6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.release.xcconfig"; sourceTree = "<group>"; };
+		73963F374974C36E0AF98CF6 /* Pods-PowerBuilding531.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.debug.xcconfig"; sourceTree = "<group>"; };
+		BF5527AA3C706DFCD89CE0D2 /* libPods-PowerBuilding531.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PowerBuilding531.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,19 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0003B00D1AA56CDA6CFA66 /* libPods-PowerBuilding531.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		671A6E4377A13FC1AF589F41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73963F374974C36E0AF98CF6 /* Pods-PowerBuilding531.debug.xcconfig */,
+				1AD4CC2E053C4F6B5221B9DD /* Pods-PowerBuilding531.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6D4590E32167A6F3001DCB56 = {
 			isa = PBXGroup;
 			children = (
 				6D4590EE2167A6F3001DCB56 /* PowerBuilding531 */,
 				6D4590ED2167A6F3001DCB56 /* Products */,
-				747DBD0B455415870FFB6808 /* Pods */,
-				C4422CE8A81234E5253EDDF3 /* Frameworks */,
+				671A6E4377A13FC1AF589F41 /* Pods */,
+				C9E27B7312F744BED7984D96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,24 +88,17 @@
 				6D4590FE2167A6F5001DCB56 /* Info.plist */,
 				6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */,
 				6DED09E42167B817007B9CFB /* Login.storyboard */,
+				6D59327A2167EDA900C3A7BC /* LoginViewController.swift */,
 				6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */,
 				6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */,
 			);
 			path = PowerBuilding531;
 			sourceTree = "<group>";
 		};
-		747DBD0B455415870FFB6808 /* Pods */ = {
+		C9E27B7312F744BED7984D96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */,
-				A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C4422CE8A81234E5253EDDF3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
+				BF5527AA3C706DFCD89CE0D2 /* libPods-PowerBuilding531.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,11 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D4591012167A6F5001DCB56 /* Build configuration list for PBXNativeTarget "PowerBuilding531" */;
 			buildPhases = (
-				1B7E0B70459414A0D4B3A5C2 /* [CP] Check Pods Manifest.lock */,
+				08B62C68E3CC3729F8B2D590 /* [CP] Check Pods Manifest.lock */,
 				6D4590E82167A6F3001DCB56 /* Sources */,
 				6D4590E92167A6F3001DCB56 /* Frameworks */,
 				6D4590EA2167A6F3001DCB56 /* Resources */,
-				DB8F8D3BF13301299E299A45 /* [CP] Copy Pods Resources */,
+				4FB97752953074D34E57E61A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,7 +175,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B7E0B70459414A0D4B3A5C2 /* [CP] Check Pods Manifest.lock */ = {
+		08B62C68E3CC3729F8B2D590 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -186,7 +193,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB8F8D3BF13301299E299A45 /* [CP] Copy Pods Resources */ = {
+		4FB97752953074D34E57E61A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D59327B2167EDA900C3A7BC /* LoginViewController.swift in Sources */,
 				6D4590F82167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld in Sources */,
 				6D4590F22167A6F3001DCB56 /* ViewController.swift in Sources */,
 				6D4590F02167A6F3001DCB56 /* AppDelegate.swift in Sources */,
@@ -401,7 +409,7 @@
 		};
 		6D4591022167A6F5001DCB56 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */;
+			baseConfigurationReference = 73963F374974C36E0AF98CF6 /* Pods-PowerBuilding531.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -420,7 +428,7 @@
 		};
 		6D4591032167A6F5001DCB56 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */;
+			baseConfigurationReference = 1AD4CC2E053C4F6B5221B9DD /* Pods-PowerBuilding531.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
