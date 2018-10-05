@@ -17,10 +17,20 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "LoginID")
-        controller.modalTransitionStyle = .crossDissolve
-        self.present(controller, animated: true, completion: nil)
+        let preferences = UserDefaults.init()
+        let hasSignedInKey = "hasSignedIn"
+        
+        if preferences.object(forKey: hasSignedInKey) == nil {
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginID")
+            controller.modalTransitionStyle = .crossDissolve
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            let storyboard = UIStoryboard(name: "DailyWorkout", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "DailyWorkoutID")
+            controller.modalTransitionStyle = .crossDissolve
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 }
 
