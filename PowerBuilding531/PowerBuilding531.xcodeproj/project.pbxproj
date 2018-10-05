@@ -15,9 +15,11 @@
 		6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */; };
 		6DED09E52167B817007B9CFB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E42167B817007B9CFB /* Login.storyboard */; };
 		6DED09E72167B831007B9CFB /* DailyWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */; };
+		6DED09E92167D61A007B9CFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4590EC2167A6F3001DCB56 /* PowerBuilding531.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerBuilding531.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4590F12167A6F3001DCB56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		6D4590FE2167A6F5001DCB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DED09E42167B817007B9CFB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyWorkout.storyboard; sourceTree = "<group>"; };
+		6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerBuilding531.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 			children = (
 				6D4590EE2167A6F3001DCB56 /* PowerBuilding531 */,
 				6D4590ED2167A6F3001DCB56 /* Products */,
+				747DBD0B455415870FFB6808 /* Pods */,
+				C4422CE8A81234E5253EDDF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,9 +74,26 @@
 				6D4590FE2167A6F5001DCB56 /* Info.plist */,
 				6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */,
 				6DED09E42167B817007B9CFB /* Login.storyboard */,
+				6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */,
 				6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */,
 			);
 			path = PowerBuilding531;
+			sourceTree = "<group>";
+		};
+		747DBD0B455415870FFB6808 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */,
+				A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C4422CE8A81234E5253EDDF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D4591012167A6F5001DCB56 /* Build configuration list for PBXNativeTarget "PowerBuilding531" */;
 			buildPhases = (
+				1B7E0B70459414A0D4B3A5C2 /* [CP] Check Pods Manifest.lock */,
 				6D4590E82167A6F3001DCB56 /* Sources */,
 				6D4590E92167A6F3001DCB56 /* Frameworks */,
 				6D4590EA2167A6F3001DCB56 /* Resources */,
+				DB8F8D3BF13301299E299A45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DED09E72167B831007B9CFB /* DailyWorkout.storyboard in Resources */,
+				6DED09E92167D61A007B9CFB /* GoogleService-Info.plist in Resources */,
 				6DED09E52167B817007B9CFB /* Login.storyboard in Resources */,
 				6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */,
 				6D4590FA2167A6F5001DCB56 /* Assets.xcassets in Resources */,
@@ -140,6 +166,85 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B7E0B70459414A0D4B3A5C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PowerBuilding531-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8F8D3BF13301299E299A45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531-resources.sh",
+				"${PODS_ROOT}/MaterialComponents/components/ActivityIndicator/src/MaterialActivityIndicator.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/AppBar/src/MaterialAppBar.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/BottomNavigation/src/MaterialBottomNavigation.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/CollectionCells/src/MaterialCollectionCells.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/Collections/src/MaterialCollections.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/Dialogs/src/MaterialDialogs.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/FeatureHighlight/src/MaterialFeatureHighlight.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/PageControl/src/MaterialPageControl.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/Snackbar/src/MaterialSnackbar.bundle",
+				"${PODS_ROOT}/MaterialComponents/components/Tabs/src/MaterialTabs.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_arrow_back.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_check.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_check_circle.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_chevron_right.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_color_lens.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_help_outline.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_info.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_more_horiz.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_radio_button_unchecked.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_reorder.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents/MaterialIcons_ic_settings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialActivityIndicator.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialAppBar.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialBottomNavigation.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCollectionCells.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCollections.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialDialogs.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialFeatureHighlight.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialPageControl.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialSnackbar.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialTabs.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_arrow_back.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_check.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_check_circle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_chevron_right.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_color_lens.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_help_outline.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_info.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_more_horiz.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_radio_button_unchecked.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_reorder.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons_ic_settings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerBuilding531/Pods-PowerBuilding531-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6D4590E82167A6F3001DCB56 /* Sources */ = {
@@ -296,6 +401,7 @@
 		};
 		6D4591022167A6F5001DCB56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D125A05557F6AB078BC8EF5 /* Pods-PowerBuilding531.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,6 +420,7 @@
 		};
 		6D4591032167A6F5001DCB56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1457BEEACF502B7F29C73B0 /* Pods-PowerBuilding531.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
