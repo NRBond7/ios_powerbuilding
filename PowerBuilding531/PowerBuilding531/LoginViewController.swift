@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        if (user != nil) {
+        if user != nil {
             openDailyWorkout()
         }
         
