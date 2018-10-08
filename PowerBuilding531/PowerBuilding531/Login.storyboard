@@ -20,24 +20,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dumbbell" translatesAutoresizingMaskIntoConstraints="NO" id="xzm-T5-zYF" userLabel="Launch Icon">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv9-ko-2hh" customClass="MDCRaisedButton">
-                                <rect key="frame" x="67" y="580" width="240" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ejQ-QJ-UlF"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="CREATE ACCOUNT">
-                                            <attributes>
-                                                <color key="NSColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="20" name="HelveticaNeue-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-QS-2sI">
                                 <rect key="frame" x="0.0" y="50" width="375" height="128"/>
                                 <attributedString key="attributedText">
@@ -51,11 +33,11 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKd-t3-HVU" customClass="MDCRaisedButton">
-                                <rect key="frame" x="67" y="524" width="240" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKd-t3-HVU" customClass="MDCRaisedButton">
+                                <rect key="frame" x="67" y="575" width="241" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.56862745098039214" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="uTj-tG-hOs"/>
+                                    <constraint firstAttribute="height" constant="40" id="WWd-TE-1f6"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -68,24 +50,24 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="G1z-7y-cFx" eventType="primaryActionTriggered" id="bTw-Ye-VfB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DU5-QS-2sI" firstAttribute="top" secondItem="avH-0q-7KH" secondAttribute="top" constant="30" id="1Dm-pp-sGL"/>
                             <constraint firstItem="xzm-T5-zYF" firstAttribute="top" secondItem="DU5-QS-2sI" secondAttribute="bottom" constant="91" id="3rF-rk-Uh9"/>
-                            <constraint firstItem="Tv9-ko-2hh" firstAttribute="leading" secondItem="xzm-T5-zYF" secondAttribute="leading" id="DNu-da-yR7"/>
-                            <constraint firstItem="Tv9-ko-2hh" firstAttribute="top" secondItem="NKd-t3-HVU" secondAttribute="bottom" constant="16" id="DkV-rw-kso"/>
-                            <constraint firstItem="avH-0q-7KH" firstAttribute="bottom" secondItem="Tv9-ko-2hh" secondAttribute="bottom" constant="47" id="JTB-KX-xui"/>
+                            <constraint firstItem="NKd-t3-HVU" firstAttribute="leading" secondItem="xzm-T5-zYF" secondAttribute="leading" id="Hin-xY-KWa"/>
                             <constraint firstItem="DU5-QS-2sI" firstAttribute="centerX" secondItem="xzm-T5-zYF" secondAttribute="centerX" id="Q5E-aS-Jfl"/>
-                            <constraint firstItem="NKd-t3-HVU" firstAttribute="leading" secondItem="Tv9-ko-2hh" secondAttribute="leading" id="T0f-VA-af6"/>
-                            <constraint firstItem="NKd-t3-HVU" firstAttribute="trailing" secondItem="Tv9-ko-2hh" secondAttribute="trailing" id="eXJ-b1-HoT"/>
+                            <constraint firstItem="NKd-t3-HVU" firstAttribute="trailing" secondItem="xzm-T5-zYF" secondAttribute="trailing" id="bHu-bn-tA0"/>
                             <constraint firstItem="xzm-T5-zYF" firstAttribute="leading" secondItem="avH-0q-7KH" secondAttribute="leading" constant="67" id="fMT-BW-jqC"/>
                             <constraint firstItem="DU5-QS-2sI" firstAttribute="leading" secondItem="a6g-Q3-ZHY" secondAttribute="leading" id="fnq-uB-6HD"/>
                             <constraint firstItem="xzm-T5-zYF" firstAttribute="centerX" secondItem="a6g-Q3-ZHY" secondAttribute="centerX" id="fzO-ie-QVD"/>
-                            <constraint firstItem="Tv9-ko-2hh" firstAttribute="trailing" secondItem="xzm-T5-zYF" secondAttribute="trailing" id="gCw-Bh-pEC"/>
                             <constraint firstItem="xzm-T5-zYF" firstAttribute="centerY" secondItem="a6g-Q3-ZHY" secondAttribute="centerY" id="oWX-ja-haG"/>
                             <constraint firstItem="xzm-T5-zYF" firstAttribute="top" secondItem="avH-0q-7KH" secondAttribute="top" constant="249" id="tPB-C4-VAO"/>
+                            <constraint firstItem="avH-0q-7KH" firstAttribute="bottom" secondItem="NKd-t3-HVU" secondAttribute="bottom" constant="52" id="xnf-SH-Tbr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="avH-0q-7KH"/>
                     </view>
