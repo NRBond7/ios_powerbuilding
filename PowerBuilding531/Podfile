@@ -16,5 +16,7 @@ target 'PowerBuilding531' do
   pod 'Crashlytics'
   pod 'MaterialComponents'
   pod 'MaterialComponents/Buttons+ButtonThemer'
+  pod 'MaterialComponents/AppBar'
+  pod 'MaterialComponents/TextFields'
 
 end

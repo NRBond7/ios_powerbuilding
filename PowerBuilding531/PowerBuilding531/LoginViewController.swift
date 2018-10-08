@@ -41,7 +41,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if user != nil {
-            openDailyWorkout()
+            Database.database().reference().child("one_rep_maxes").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.exists() {
+                    self.openDailyWorkout()
+                } else {
+                    self.openOnboarding()
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
         
         guard let authError = error else { return }
@@ -59,9 +67,19 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         }
     }
     
+    func openOnboarding() {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "OnboardingID")
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     func openDailyWorkout() {
         let storyboard = UIStoryboard(name: "DailyWorkout", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DailyWorkoutID")
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
