@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D04F599216C0ADD00B23790 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F598216C0ADD00B23790 /* CardTableViewCell.swift */; };
 		6D04F59B216CE8B200B23790 /* ConditioningCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F59A216CE8B200B23790 /* ConditioningCardCell.swift */; };
+		6D04F59D216D02BE00B23790 /* LiftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F59C216D02BE00B23790 /* LiftUtil.swift */; };
 		6D4590F02167A6F3001DCB56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */; };
 		6D4590F22167A6F3001DCB56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590F12167A6F3001DCB56 /* ViewController.swift */; };
 		6D4590F52167A6F3001DCB56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590F32167A6F3001DCB56 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		34B94E4B6CB7AAD2D3FFC9F3 /* Pods_PowerBuilding531.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerBuilding531.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D04F598216C0ADD00B23790 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		6D04F59A216CE8B200B23790 /* ConditioningCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditioningCardCell.swift; sourceTree = "<group>"; };
+		6D04F59C216D02BE00B23790 /* LiftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftUtil.swift; sourceTree = "<group>"; };
 		6D4590EC2167A6F3001DCB56 /* PowerBuilding531.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerBuilding531.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D4590F12167A6F3001DCB56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				6D04F598216C0ADD00B23790 /* CardTableViewCell.swift */,
 				6D04F59A216CE8B200B23790 /* ConditioningCardCell.swift */,
 				6D59327C2167F90E00C3A7BC /* DailyWorkoutViewController.swift */,
+				6D04F59C216D02BE00B23790 /* LiftUtil.swift */,
 				6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */,
 				6D4590FE2167A6F5001DCB56 /* Info.plist */,
 				6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */,
@@ -289,6 +292,7 @@
 				6D4590F22167A6F3001DCB56 /* ViewController.swift in Sources */,
 				6D4590F02167A6F3001DCB56 /* AppDelegate.swift in Sources */,
 				6D04F599216C0ADD00B23790 /* CardTableViewCell.swift in Sources */,
+				6D04F59D216D02BE00B23790 /* LiftUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

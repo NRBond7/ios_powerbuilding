@@ -91,7 +91,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHt-sX-AA4">
                                                             <rect key="frame" x="16" y="77" width="273" height="19"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Box Jumps">
+                                                                <fragment content="Warm up 1">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -103,7 +103,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOv-7q-KTA">
                                                             <rect key="frame" x="16" y="97" width="273" height="18.666666666666671"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="245 x 10 Deadlift">
+                                                                <fragment content="Main lift 1">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -115,7 +115,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R54-gw-LYj">
                                                             <rect key="frame" x="16" y="115.66666666666666" width="273" height="18.666666666666657"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Plank">
+                                                                <fragment content="Core 1">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -139,7 +139,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bai-L9-vgK">
                                                             <rect key="frame" x="16" y="161.66666666666666" width="273" height="19"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Box Jumps">
+                                                                <fragment content="Warm up 2">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -151,7 +151,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzG-Hf-DrC">
                                                             <rect key="frame" x="16" y="180.66666666666666" width="273" height="18.666666666666657"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="290 x 8 Deadlift">
+                                                                <fragment content="Main lift 2">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -163,7 +163,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk3-gc-IsJ">
                                                             <rect key="frame" x="16" y="199.33333333333334" width="273" height="18.666666666666657"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Plank">
+                                                                <fragment content="Core 2">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -187,7 +187,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOZ-R2-t75">
                                                             <rect key="frame" x="16" y="245.33333333333331" width="273" height="19"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Box Jumps">
+                                                                <fragment content="Warm up 1">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -199,7 +199,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKf-L4-kjV">
                                                             <rect key="frame" x="16" y="264.33333333333331" width="273" height="18.666666666666686"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="330 x 6 Deadlift">
+                                                                <fragment content="Main lift 3">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -211,7 +211,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ske-Ie-TQx">
                                                             <rect key="frame" x="16" y="283" width="273" height="25"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Plank">
+                                                                <fragment content="Core 3">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -314,7 +314,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-r5-gS3">
                                                             <rect key="frame" x="16" y="58" width="273" height="19"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Box Jumps">
+                                                                <fragment content="Lift 1">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -326,7 +326,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-lD-rXw">
                                                             <rect key="frame" x="16" y="77" width="273" height="18.666666666666671"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="245 x 10 Deadlift">
+                                                                <fragment content="Lift 2">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -338,7 +338,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-15-fB6">
                                                             <rect key="frame" x="16" y="95.666666666666671" width="273" height="26.333333333333329"/>
                                                             <attributedString key="attributedText">
-                                                                <fragment content="Plank">
+                                                                <fragment content="Lift 3">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -448,6 +448,7 @@
                         <outlet property="finishWorkoutFab" destination="yFo-cX-BCn" id="aVS-me-mdr"/>
                         <outlet property="tableView" destination="Sb3-b1-vgq" id="ip1-Fv-tPJ"/>
                         <outlet property="workoutDisplayText" destination="2cc-BV-bf7" id="VpL-eE-0yJ"/>
+                        <outlet property="workoutHeaderText" destination="e3G-Nv-WBh" id="id2-lz-HWL"/>
                         <outlet property="workoutPicker" destination="8db-O9-hqW" id="3fp-yu-6xv"/>
                     </connections>
                 </viewController>

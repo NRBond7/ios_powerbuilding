@@ -19,20 +19,67 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var workoutDisplayText: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var finishWorkoutFab: MDCFloatingButton!
+    @IBOutlet weak var workoutHeaderText: UITextField!
     
     var pickerData: [String] = [String]()
     var workoutData: [String] = [String]()
     var workoutSetData: [String] = [String]()
+    var databaseRef: DatabaseReference!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusBarColor()
         workoutPicker.isHidden = true
-        initPicker()
-        initWorkout()
+//        initPicker()
+//        initWorkout()
+        setupFirebase()
         
         finishWorkoutFab.backgroundColor = UIColor(red:0.00, green:0.57, blue:0.92, alpha:1.0)
         finishWorkoutFab.setImage(UIImage(named: "check.png"), for: .normal)
+    }
+    
+    func setupFirebase() {
+        databaseRef = Database.database().reference()
+        user = Auth.auth().currentUser!
+        
+        databaseRef.child("lift_log").child(user.uid).observe(.value) { snapshot in
+            var lastLift = ""
+            
+            if snapshot.childrenCount > 0 {
+                var workoutCount = 1.0;
+                for case let child as DataSnapshot in snapshot.children {
+                    let val = child.value
+                    if let childData = val as? Dictionary<String, String> {
+                        let liftDate = childData["date"]
+                        let liftName = childData["lift_name"]
+                        let liftType = childData["lift_type"]
+                        let weekNumber = round(workoutCount / 4.0)
+                        
+                        var workoutString = "Week " + String(weekNumber)
+                        workoutString = workoutString + " " + liftName!
+                        workoutString  = workoutString + " - " + liftDate!
+                        self.pickerData.append(workoutString)
+                        lastLift = liftType!
+                    }
+                    
+                    workoutCount = workoutCount + 1;
+                }
+            }
+            
+            let nextLift = LiftUtil().generateNextLiftDay(lastLift: lastLift)
+            let nextLiftText = "Today - " + nextLift["liftName"]!
+            self.pickerData.insert(nextLiftText, at: 0)
+            
+            self.initPicker()
+            self.loadDataForDay(nextLift: nextLift)
+        }
+    }
+    
+    func loadDataForDay(nextLift: Dictionary<String, String>) {
+        workoutHeaderText.text = nextLift["liftName"]! + " Day"
+        // todo: populate lift UI
+        // todo: store current lift
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -46,7 +93,6 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func initPicker() {
-        pickerData = ["Today - Deadlift", "Week 4 Bench Press - 10/06/2018", "Week 4 Squat - 10/5/2018"]
         workoutDisplayText.text = pickerData.first
         workoutDisplayText.delegate = self
         workoutPicker.delegate = self
