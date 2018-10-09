@@ -143,10 +143,15 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     @IBAction func onLogoutClicked(_ sender: Any) {
-        try! Auth.auth().signOut()
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "LoginID")
-        self.present(controller, animated: true)
+        let alertController = UIAlertController(title: "Logout?", message: "", preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Logout", style: .default, handler: { action in
+            try! Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginID")
+            self.present(controller, animated: true)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true)
     }
     
 }
