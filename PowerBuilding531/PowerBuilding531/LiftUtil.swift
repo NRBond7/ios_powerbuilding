@@ -41,5 +41,9 @@ class LiftUtil {
         
         return dictionary
     }
+    
+    func roundDownCalculation(value: Double) -> Double {
+        return 2.5 * floor(value / 2.5);
+    }
 
 }

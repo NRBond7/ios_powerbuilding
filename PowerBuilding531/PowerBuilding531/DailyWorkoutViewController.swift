@@ -67,19 +67,136 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
                 }
             }
             
+            let defaults = UserDefaults.standard
             let nextLift = LiftUtil().generateNextLiftDay(lastLift: lastLift)
             let nextLiftText = "Today - " + nextLift["liftName"]!
             self.pickerData.insert(nextLiftText, at: 0)
             
+            defaults.set(nextLift, forKey: "nextLift")
             self.initPicker()
-            self.loadDataForDay(nextLift: nextLift)
+//            self.loadDataForDay(nextLift: nextLift)
+            self.initWorkout()
         }
     }
     
     func loadDataForDay(nextLift: Dictionary<String, String>) {
         workoutHeaderText.text = nextLift["liftName"]! + " Day"
-        // todo: populate lift UI
-        // todo: store current lift
+        populateLiftUI(nextLift: nextLift)
+    }
+    
+    func populateLiftUI(nextLift: Dictionary<String, String>) {
+        let index = workoutPicker.selectedRow(inComponent: 0)
+        let workoutNumber = pickerData.count - index
+        let weekNumber = Int(ceil(Double(workoutNumber) / 4.0))
+        let wave = Int(floor(Double(weekNumber - 1) / 3.0 + 1))
+        
+        let weekId: String
+        switch(weekNumber) {
+        case 1, 4, 7:
+            weekId = "147";
+            break;
+        case 2, 5, 8:
+            weekId = "258";
+            break;
+        case 3, 6, 9:
+            weekId = "369";
+            break;
+        default:
+            weekId = "147";
+            break;
+        }
+        
+        print("workout - " + String(workoutNumber));
+        print("week - " + String(weekNumber));
+        print("wave - " + String(wave));
+        print("weekid - " + String(weekId));
+        
+        let defaults = UserDefaults.standard
+        databaseRef.child("pattern").child(weekId).child(nextLift["liftType"]!).observe(.value) { snapshot in
+            let dictionary = snapshot.value as? [String: [String:String]]
+            defaults.setValue(dictionary, forKey: "patternData")
+            self.generateWorkout()
+        }
+        
+        databaseRef.child("waves").child(String(wave)).observe(.value) { snapshot in
+            let dictionary = snapshot.value as? [String: Any]?
+            defaults.setValue(dictionary, forKey: "waveData")
+            self.generateWorkout()
+        }
+        
+        databaseRef.child("one_rep_maxes").child(user.uid).observe(.value) { snapshot in
+            let dictionary = snapshot.value as? [String: Any]
+            defaults.setValue(dictionary, forKey: "maxData")
+            self.generateWorkout()
+        }
+        
+        databaseRef.child("lift_blocks").child(nextLift["liftType"]!).observe(.value) { snapshot in
+            let dictionary = snapshot.value as? [String: Any]
+            defaults.setValue(dictionary, forKey: "liftBlockData")
+            self.generateWorkout()
+        }
+        
+        databaseRef.child("lift_block_types").observe(.value) { snapshot in
+            let dictionary = snapshot.value as? Array<Any>
+            defaults.setValue(dictionary, forKey: "liftBlockTypeData")
+            self.generateWorkout()
+        }
+    }
+    
+    func generateWorkout() {
+        let defaults = UserDefaults.standard
+        let patternData = defaults.object(forKey: "patternData") as! [String: [String:String]]?
+        let waveData = defaults.object(forKey: "waveData") as! [String: Any]?
+        let maxData = defaults.object(forKey: "maxData") as! [String: Any]?
+        let liftBlockData = defaults.object(forKey: "liftBlockData") as! [String: Any]?
+        let liftBlockTypeData = defaults.object(forKey: "liftBlockTypeData") as! Array<Any>?
+        
+        if patternData != nil && waveData != nil && maxData != nil && liftBlockData != nil && liftBlockTypeData != nil {
+            var liftBlockIndex = 0
+
+            for blockType in liftBlockTypeData! {
+                let castedBlock = blockType as! [String : String]
+                let currentBlockId = castedBlock["id"]!;
+                let currentBlockName = castedBlock["name"]!;
+                let numSets = castedBlock["num_sets"]!;
+                
+                var setIndex = 0;
+                for o in numSets {
+                    var currentSet = setIndex + 1;
+                    
+                    var liftBlockDataIndex = 0
+                    for liftBlock in liftBlockData! {
+                        let patternBlock = patternData![currentBlockId]! as Dictionary<String, String>
+                        let intensity = patternBlock["intensity"]!;
+                        let liftBlock = liftBlockData![currentBlockId]! as! Dictionary<String, Dictionary<String, String>>
+                        let liftType = liftBlock[String(liftBlockDataIndex)]!["lift_type"]!;
+                        let liftName = liftBlock[String(liftBlockDataIndex)]!["lift_name"]!;
+                        let hasPr = liftBlock[String(liftBlockDataIndex)]!["has_pr"]!;
+                        let waveBlock = waveData![intensity] as! Dictionary<String, String>
+                        let reps = waveBlock["set_" + String(currentSet) + "_reps"]!;
+                        
+                        if (hasPr == "true") {
+                            let maxBlock = maxData as! Dictionary<String, String>
+                            var liftMax = maxBlock[liftType]!;
+                            var weightPercentage = waveBlock["set_" + String(currentSet) + "_percentage"]!;
+                            let liftWeight = LiftUtil().roundDownCalculation(value: Double(liftMax)! * Double(weightPercentage)!);
+                            let lift = String(liftWeight) + " x " + String(reps) + " " + liftName
+                            workoutData.append(lift)
+                        } else {
+                            let lift = reps + " " + liftName
+                            workoutData.append(lift)
+                        }
+                        
+                        liftBlockDataIndex = liftBlockDataIndex + 1
+                    }
+                    setIndex = setIndex + 1
+                }
+                liftBlockIndex = liftBlockIndex + 1
+            }
+            
+            self.initWorkout()
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -136,6 +253,7 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.allowsSelection = false
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,7 +300,23 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         // todo: upload workout
         let alertController = UIAlertController(title: "Upload workout?", message: "", preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "Upload", style: .default, handler: { action in
-            print("uploadWorkout")
+            print("handleFinishWorkout")
+//            let defaults = UserDefaults.standard
+//            let lift = defaults.dictionary(forKey: "nextLift")
+//            let key = self.user.uid
+//            let post: [String : String] = ["date": "10/08/2018",
+//                                           "lift_name": lift!["liftName"] as! String,
+//                                           "lift_type": lift!["liftType"] as! String,
+//                                            "lift_pr": String(100),
+//                                            "was_skipped": String(false)]
+//            self.databaseRef.child("lift_log").child(key).updateChildValues(post) {
+//                (error:Error?, ref:DatabaseReference) in
+//                if let error = error {
+//                    print("DailyWorkout - handleFinishWorkout - Data could not be saved: \(error).")
+//                } else {
+//                    print("DailyWorkout - handleFinishWorkout - Data saved successfully!")
+//                }
+//            }
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true)
