@@ -311,7 +311,7 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-r5-gS3">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-r5-gS3" userLabel="Lift1">
                                                             <rect key="frame" x="16" y="58" width="273" height="19"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Lift 1">
@@ -323,22 +323,10 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-lD-rXw">
-                                                            <rect key="frame" x="16" y="77" width="273" height="18.666666666666671"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-lD-rXw" userLabel="Lift2">
+                                                            <rect key="frame" x="16" y="77" width="273" height="45"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Lift 2">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-15-fB6">
-                                                            <rect key="frame" x="16" y="95.666666666666671" width="273" height="26.333333333333329"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Lift 3">
                                                                     <attributes>
                                                                         <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -350,6 +338,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="kiV-lD-rXw" secondAttribute="bottom" constant="16" id="1vb-lI-Ucy"/>
                                                         <constraint firstItem="y9W-r5-gS3" firstAttribute="top" secondItem="6yt-11-9y6" secondAttribute="bottom" constant="16" id="4Ep-qS-Vus"/>
                                                         <constraint firstAttribute="trailing" secondItem="6yt-11-9y6" secondAttribute="trailing" constant="20" id="4W9-R9-tpI"/>
                                                         <constraint firstAttribute="trailing" secondItem="y9W-r5-gS3" secondAttribute="trailing" constant="16" id="HHz-Mw-4ms"/>
@@ -357,12 +346,8 @@
                                                         <constraint firstItem="6yt-11-9y6" firstAttribute="leading" secondItem="cb0-0L-foT" secondAttribute="leading" constant="20" id="LoH-Sj-yse"/>
                                                         <constraint firstItem="kiV-lD-rXw" firstAttribute="top" secondItem="y9W-r5-gS3" secondAttribute="bottom" id="NR5-4b-W4z"/>
                                                         <constraint firstItem="kiV-lD-rXw" firstAttribute="leading" secondItem="cb0-0L-foT" secondAttribute="leading" constant="16" id="Oq5-lz-Oek"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Pas-15-fB6" secondAttribute="bottom" constant="16" id="ZaP-4c-q0x"/>
-                                                        <constraint firstItem="Pas-15-fB6" firstAttribute="leading" secondItem="cb0-0L-foT" secondAttribute="leading" constant="16" id="dZA-ef-z67"/>
                                                         <constraint firstAttribute="trailing" secondItem="kiV-lD-rXw" secondAttribute="trailing" constant="16" id="iq1-kG-FBL"/>
                                                         <constraint firstItem="6yt-11-9y6" firstAttribute="top" secondItem="cb0-0L-foT" secondAttribute="top" constant="16" id="u0p-Ys-Zpv"/>
-                                                        <constraint firstItem="Pas-15-fB6" firstAttribute="top" secondItem="kiV-lD-rXw" secondAttribute="bottom" id="x1A-Nr-GI8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Pas-15-fB6" secondAttribute="trailing" constant="16" id="zcN-1h-hlY"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
@@ -377,18 +362,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="headerText" destination="6yt-11-9y6" id="lP1-K0-YPj"/>
-                                            <outlet property="lift1" destination="kiV-lD-rXw" id="a4o-7p-cfc"/>
+                                            <outlet property="lift1" destination="y9W-r5-gS3" id="gKN-s3-wB8"/>
                                             <outlet property="lift2" destination="kiV-lD-rXw" id="kbL-K6-6fm"/>
-                                            <outlet property="lift3" destination="Pas-15-fB6" id="x7r-KU-oUW"/>
-                                            <outlet property="set1Core" destination="Pas-15-fB6" id="UvX-Cd-1Zo"/>
-                                            <outlet property="set1MainLift" destination="kiV-lD-rXw" id="ube-Qf-M9F"/>
-                                            <outlet property="set1WarmUp" destination="y9W-r5-gS3" id="a8n-9p-9uC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3G-Nv-WBh" userLabel="WorkoutHeader">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3G-Nv-WBh" userLabel="WorkoutHeader">
                                 <rect key="frame" x="20" y="158" width="335" height="28"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Deadlift Day">

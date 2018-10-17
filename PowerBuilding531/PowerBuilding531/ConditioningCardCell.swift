@@ -10,9 +10,9 @@ import UIKit
 
 class ConditioningCardCell: UITableViewCell {
 
+    
     @IBOutlet weak var lift1: UILabel!
     @IBOutlet weak var lift2: UILabel!
-    @IBOutlet weak var lift3: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
