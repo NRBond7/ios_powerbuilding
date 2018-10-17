@@ -16,6 +16,7 @@
 		6D4590F82167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4590F62167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld */; };
 		6D4590FA2167A6F5001DCB56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590F92167A6F5001DCB56 /* Assets.xcassets */; };
 		6D4590FD2167A6F5001DCB56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */; };
+		6D4F40662177AFB700203697 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F40652177AFB700203697 /* Colors.swift */; };
 		6D59327B2167EDA900C3A7BC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59327A2167EDA900C3A7BC /* LoginViewController.swift */; };
 		6D59327D2167F90E00C3A7BC /* DailyWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59327C2167F90E00C3A7BC /* DailyWorkoutViewController.swift */; };
 		6D593282216BA29000C3A7BC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D593281216BA29000C3A7BC /* OnboardingViewController.swift */; };
@@ -40,6 +41,7 @@
 		6D4590F92167A6F5001DCB56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4590FC2167A6F5001DCB56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4590FE2167A6F5001DCB56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D4F40652177AFB700203697 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6D59327A2167EDA900C3A7BC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D59327C2167F90E00C3A7BC /* DailyWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWorkoutViewController.swift; sourceTree = "<group>"; };
 		6D593281216BA29000C3A7BC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -94,14 +96,15 @@
 			children = (
 				6D4590EF2167A6F3001DCB56 /* AppDelegate.swift */,
 				6D4590F92167A6F5001DCB56 /* Assets.xcassets */,
-				6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */,
 				6D04F598216C0ADD00B23790 /* CardTableViewCell.swift */,
 				6D04F59A216CE8B200B23790 /* ConditioningCardCell.swift */,
+				6DED09E62167B831007B9CFB /* DailyWorkout.storyboard */,
 				6D59327C2167F90E00C3A7BC /* DailyWorkoutViewController.swift */,
-				6D04F59C216D02BE00B23790 /* LiftUtil.swift */,
+				6D4F40652177AFB700203697 /* Colors.swift */,
 				6DED09E82167D61A007B9CFB /* GoogleService-Info.plist */,
 				6D4590FE2167A6F5001DCB56 /* Info.plist */,
 				6D4590FB2167A6F5001DCB56 /* LaunchScreen.storyboard */,
+				6D04F59C216D02BE00B23790 /* LiftUtil.swift */,
 				6DED09E42167B817007B9CFB /* Login.storyboard */,
 				6D59327A2167EDA900C3A7BC /* LoginViewController.swift */,
 				6D4590F32167A6F3001DCB56 /* Main.storyboard */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D59327B2167EDA900C3A7BC /* LoginViewController.swift in Sources */,
+				6D4F40662177AFB700203697 /* Colors.swift in Sources */,
 				6D593282216BA29000C3A7BC /* OnboardingViewController.swift in Sources */,
 				6D59327D2167F90E00C3A7BC /* DailyWorkoutViewController.swift in Sources */,
 				6D4590F82167A6F3001DCB56 /* PowerBuilding531.xcdatamodeld in Sources */,
@@ -442,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73963F374974C36E0AF98CF6 /* Pods-PowerBuilding531.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LQZ3M53PR;
@@ -450,10 +455,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noahbond.PowerBuilding531;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -473,6 +480,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 arm64 arm64e";
 			};
 			name = Release;
 		};

@@ -15,7 +15,6 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         UIPickerViewDataSource, UITextFieldDelegate,
         UITableViewDataSource {
     
-    @IBOutlet weak var workoutPicker: UIPickerView!
     @IBOutlet weak var workoutDisplayText: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var finishWorkoutFab: MDCFloatingButton!
@@ -30,12 +29,11 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusBarColor()
-        workoutPicker.isHidden = true
 //        initPicker()
 //        initWorkout()
         setupFirebase()
         
-        finishWorkoutFab.backgroundColor = UIColor(red:0.00, green:0.57, blue:0.92, alpha:1.0)
+        finishWorkoutFab.backgroundColor = Colors().BLUE
         finishWorkoutFab.setImage(UIImage(named: "check.png"), for: .normal)
     }
     
@@ -85,62 +83,62 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func populateLiftUI(nextLift: Dictionary<String, String>) {
-        let index = workoutPicker.selectedRow(inComponent: 0)
-        let workoutNumber = pickerData.count - index
-        let weekNumber = Int(ceil(Double(workoutNumber) / 4.0))
-        let wave = Int(floor(Double(weekNumber - 1) / 3.0 + 1))
-        
-        let weekId: String
-        switch(weekNumber) {
-        case 1, 4, 7:
-            weekId = "147";
-            break;
-        case 2, 5, 8:
-            weekId = "258";
-            break;
-        case 3, 6, 9:
-            weekId = "369";
-            break;
-        default:
-            weekId = "147";
-            break;
-        }
-        
-        print("workout - " + String(workoutNumber));
-        print("week - " + String(weekNumber));
-        print("wave - " + String(wave));
-        print("weekid - " + String(weekId));
-        
-        let defaults = UserDefaults.standard
-        databaseRef.child("pattern").child(weekId).child(nextLift["liftType"]!).observe(.value) { snapshot in
-            let dictionary = snapshot.value as? [String: [String:String]]
-            defaults.setValue(dictionary, forKey: "patternData")
-            self.generateWorkout()
-        }
-        
-        databaseRef.child("waves").child(String(wave)).observe(.value) { snapshot in
-            let dictionary = snapshot.value as? [String: Any]?
-            defaults.setValue(dictionary, forKey: "waveData")
-            self.generateWorkout()
-        }
-        
-        databaseRef.child("one_rep_maxes").child(user.uid).observe(.value) { snapshot in
-            let dictionary = snapshot.value as? [String: Any]
-            defaults.setValue(dictionary, forKey: "maxData")
-            self.generateWorkout()
-        }
-        
-        databaseRef.child("lift_blocks").child(nextLift["liftType"]!).observe(.value) { snapshot in
-            let dictionary = snapshot.value as? [String: Any]
-            defaults.setValue(dictionary, forKey: "liftBlockData")
-            self.generateWorkout()
-        }
-        
-        databaseRef.child("lift_block_types").observe(.value) { snapshot in
-            let dictionary = snapshot.value as? Array<Any>
-            defaults.setValue(dictionary, forKey: "liftBlockTypeData")
-            self.generateWorkout()
-        }
+//        let index = workoutPicker.selectedRow(inComponent: 0)
+//        let workoutNumber = pickerData.count - index
+//        let weekNumber = Int(ceil(Double(workoutNumber) / 4.0))
+//        let wave = Int(floor(Double(weekNumber - 1) / 3.0 + 1))
+//
+//        let weekId: String
+//        switch(weekNumber) {
+//        case 1, 4, 7:
+//            weekId = "147";
+//            break;
+//        case 2, 5, 8:
+//            weekId = "258";
+//            break;
+//        case 3, 6, 9:
+//            weekId = "369";
+//            break;
+//        default:
+//            weekId = "147";
+//            break;
+//        }
+//
+//        print("workout - " + String(workoutNumber));
+//        print("week - " + String(weekNumber));
+//        print("wave - " + String(wave));
+//        print("weekid - " + String(weekId));
+//
+//        let defaults = UserDefaults.standard
+//        databaseRef.child("pattern").child(weekId).child(nextLift["liftType"]!).observe(.value) { snapshot in
+//            let dictionary = snapshot.value as? [String: [String:String]]
+//            defaults.setValue(dictionary, forKey: "patternData")
+//            self.generateWorkout()
+//        }
+//
+//        databaseRef.child("waves").child(String(wave)).observe(.value) { snapshot in
+//            let dictionary = snapshot.value as? [String: Any]?
+//            defaults.setValue(dictionary, forKey: "waveData")
+//            self.generateWorkout()
+//        }
+//
+//        databaseRef.child("one_rep_maxes").child(user.uid).observe(.value) { snapshot in
+//            let dictionary = snapshot.value as? [String: Any]
+//            defaults.setValue(dictionary, forKey: "maxData")
+//            self.generateWorkout()
+//        }
+//
+//        databaseRef.child("lift_blocks").child(nextLift["liftType"]!).observe(.value) { snapshot in
+//            let dictionary = snapshot.value as? [String: Any]
+//            defaults.setValue(dictionary, forKey: "liftBlockData")
+//            self.generateWorkout()
+//        }
+//
+//        databaseRef.child("lift_block_types").observe(.value) { snapshot in
+//            let dictionary = snapshot.value as? Array<Any>
+//            defaults.setValue(dictionary, forKey: "liftBlockTypeData")
+//            self.generateWorkout()
+//        }
     }
     
     func generateWorkout() {
@@ -206,14 +204,34 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     func setStatusBarColor() {
         UINavigationBar.appearance().clipsToBounds = true
         let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        statusBar.backgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
+        statusBar.backgroundColor = Colors().RED
     }
     
     func initPicker() {
-        workoutDisplayText.text = pickerData.first
-        workoutDisplayText.delegate = self
+        let workoutPicker: UIPickerView
+        workoutPicker = UIPickerView()
+        workoutPicker.backgroundColor = .white
+        workoutPicker.showsSelectionIndicator = true
         workoutPicker.delegate = self
         workoutPicker.dataSource = self
+        
+        // ToolBar
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = Colors().BLUE
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelClick))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        workoutDisplayText.inputView = workoutPicker
+        workoutDisplayText.inputAccessoryView = toolBar
+        workoutDisplayText.tintColor = .clear
     }
     
     override func didReceiveMemoryWarning() {
@@ -235,12 +253,19 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         workoutDisplayText.text = pickerData[row]
-        pickerView.isHidden = true
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        workoutPicker.isHidden = false
+        self.initPicker()
         return false
+    }
+    
+    @objc func doneClick() {
+        workoutDisplayText.resignFirstResponder()
+    }
+    
+    @objc func cancelClick() {
+        workoutDisplayText.resignFirstResponder()
     }
     
     func initWorkout() {

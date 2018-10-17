@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,7 @@
             <objects>
                 <viewController storyboardIdentifier="DailyWorkoutID" id="9BG-av-zle" customClass="DailyWorkoutViewController" customModule="PowerBuilding531" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQf-cp-pVb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFJ-4d-Vba">
@@ -50,7 +50,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sb3-b1-vgq">
-                                <rect key="frame" x="0.0" y="206" width="375" height="960"/>
+                                <rect key="frame" x="0.0" y="206" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCard" rowHeight="374" id="hho-KC-CNN" customClass="CardTableViewCell" customModule="PowerBuilding531" customModuleProvider="target">
@@ -401,7 +401,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-cX-BCn" userLabel="FinishWorkoutButton" customClass="MDCFloatingButton">
-                                <rect key="frame" x="295" y="1120" width="60" height="60"/>
+                                <rect key="frame" x="295" y="732" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="0YH-Bg-s3g"/>
@@ -415,16 +415,11 @@
                                     <action selector="handleFinishWorkout:" destination="9BG-av-zle" eventType="primaryActionTriggered" id="fzY-hG-OkW"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8db-O9-hqW">
-                                <rect key="frame" x="0.0" y="950" width="375" height="216"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="trailing" secondItem="UxB-mo-ghr" secondAttribute="trailing" id="20I-7I-Knt"/>
-                            <constraint firstItem="UxB-mo-ghr" firstAttribute="bottom" secondItem="8db-O9-hqW" secondAttribute="bottom" id="2ky-IS-cbc"/>
                             <constraint firstItem="2cc-BV-bf7" firstAttribute="centerX" secondItem="TQf-cp-pVb" secondAttribute="centerX" constant="1" id="32Y-xR-xw5"/>
-                            <constraint firstItem="UxB-mo-ghr" firstAttribute="trailing" secondItem="8db-O9-hqW" secondAttribute="trailing" id="4yD-VA-tkq"/>
                             <constraint firstAttribute="bottom" secondItem="yFo-cX-BCn" secondAttribute="bottom" constant="20" id="6gB-BC-zGa"/>
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" id="6kG-la-W2d"/>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" id="FOS-32-6aw"/>
@@ -434,27 +429,22 @@
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="top" secondItem="UxB-mo-ghr" secondAttribute="top" id="S0o-Tr-it5"/>
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="trailing" secondItem="UxB-mo-ghr" secondAttribute="trailing" id="VxS-5U-aWK"/>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="top" secondItem="e3G-Nv-WBh" secondAttribute="bottom" constant="20" id="ZJE-QL-pfj"/>
-                            <constraint firstItem="8db-O9-hqW" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" id="d8q-aV-B4Y"/>
-                            <constraint firstItem="8db-O9-hqW" firstAttribute="width" secondItem="UxB-mo-ghr" secondAttribute="width" id="p0K-CY-yS5"/>
                             <constraint firstItem="2cc-BV-bf7" firstAttribute="top" secondItem="MFJ-4d-Vba" secondAttribute="bottom" constant="20" id="s8F-Oj-e1q"/>
-                            <constraint firstItem="8db-O9-hqW" firstAttribute="centerX" secondItem="UxB-mo-ghr" secondAttribute="centerX" id="t9U-a2-Isg"/>
                             <constraint firstItem="e3G-Nv-WBh" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" constant="20" id="vFa-tH-IPK"/>
                             <constraint firstItem="UxB-mo-ghr" firstAttribute="bottom" secondItem="Sb3-b1-vgq" secondAttribute="bottom" id="ycf-g1-Tgb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UxB-mo-ghr"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="finishWorkoutFab" destination="yFo-cX-BCn" id="aVS-me-mdr"/>
                         <outlet property="tableView" destination="Sb3-b1-vgq" id="ip1-Fv-tPJ"/>
                         <outlet property="workoutDisplayText" destination="2cc-BV-bf7" id="VpL-eE-0yJ"/>
                         <outlet property="workoutHeaderText" destination="e3G-Nv-WBh" id="id2-lz-HWL"/>
-                        <outlet property="workoutPicker" destination="8db-O9-hqW" id="3fp-yu-6xv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjY-6l-JPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="49.50738916256158"/>
+            <point key="canvasLocation" x="-298" y="48"/>
         </scene>
     </scenes>
     <resources>
