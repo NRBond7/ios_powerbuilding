@@ -23,18 +23,16 @@ class ViewController: UIViewController {
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginID")
             controller.modalTransitionStyle = .crossDissolve
             self.present(controller, animated: true, completion: nil)
-        } else {
-            self.openDailyWorkout()
-            
-//            Database.database().reference().child("one_rep_maxes").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//                if snapshot.exists() {
-//                    self.openDailyWorkout()
-//                } else {
-//                    self.openOnboarding()
-//                }
-//            }) { (error) in
-//                print(error.localizedDescription)
-//            }
+        } else {            
+            Database.database().reference().child("one_rep_maxes").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.exists() {
+                    self.openDailyWorkout()
+                } else {
+                    self.openOnboarding()
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
     }
     
