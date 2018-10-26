@@ -28,8 +28,8 @@ class OnboardingViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for index in 0...7 {
-            userMaxes.append("0.0")
+        for _ in 0...7 {
+            userMaxes.append("")
         }
         
         formTableView.dataSource = self

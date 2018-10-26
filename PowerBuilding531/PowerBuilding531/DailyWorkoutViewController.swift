@@ -72,7 +72,6 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
             defaults.set(nextLift, forKey: "nextLift")
             self.initPicker()
             self.loadDataForDay(nextLift: nextLift)
-//            self.initWorkout()
         }
     }
     
@@ -82,7 +81,6 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func populateLiftUI(nextLift: Dictionary<String, String>) {
-        // todo: clear out user defaults
         let picker = workoutDisplayText.inputView as! UIPickerView
         let index = picker.selectedRow(inComponent: 0)
         let workoutNumber = pickerData.count - index
@@ -118,31 +116,31 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         defaults.removeObject(forKey: "liftBlockTypeData")
         
         databaseRef.child("pattern").child(weekId).child(nextLift["liftType"]!).observe(.value) { snapshot in
-            guard let dictionary = snapshot.value as? Dictionary<String, Dictionary<String, String>> else { return }
+            guard let dictionary = snapshot.value as? Dictionary<String, Dictionary<String, String>> else { print("pattern failed"); return }
             defaults.set(dictionary, forKey: "patternData")
             self.generateWorkout()
         }
 
         databaseRef.child("waves").child(String(wave)).observe(.value) { snapshot in
-            guard let dictionary = snapshot.value as? Dictionary<String, Dictionary<String, Double>> else { return }
+            guard let dictionary = snapshot.value as? Dictionary<String, Dictionary<String, Double>> else { print("waves failed"); return }
             defaults.setValue(dictionary, forKey: "waveData")
             self.generateWorkout()
         }
 
         databaseRef.child("one_rep_maxes").child(user.uid).observe(.value) { snapshot in
-            guard let dictionary = snapshot.value as? Dictionary<String, Double> else { return }
+            guard let dictionary = snapshot.value as? Dictionary<String, String> else { print("one_rep_maxes failed"); return }
             defaults.setValue(dictionary, forKey: "maxData")
             self.generateWorkout()
         }
 
         databaseRef.child("lift_blocks").child(nextLift["liftType"]!).observe(.value) { snapshot in
-            guard let dictionary = snapshot.value as? Dictionary<String, Array<Dictionary<String, Any>>> else { return }
+            guard let dictionary = snapshot.value as? Dictionary<String, Array<Dictionary<String, Any>>> else { print("lift_blocks failed"); return }
             defaults.setValue(dictionary, forKey: "liftBlockData")
             self.generateWorkout()
         }
 
         databaseRef.child("lift_block_types").observe(.value) { snapshot in
-            guard let dictionary = snapshot.value as? Array<Dictionary<String, Any>> else { return }
+            guard let dictionary = snapshot.value as? Array<Dictionary<String, Any>> else { print("lift_block_types failed"); return }
             defaults.setValue(dictionary, forKey: "liftBlockTypeData")
             self.generateWorkout()
         }
@@ -152,25 +150,24 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         let defaults = UserDefaults.standard
         guard let patternData = defaults.object(forKey: "patternData") as? Dictionary<String, Dictionary<String, String>> else { return }
         guard let waveData = defaults.object(forKey: "waveData") as? Dictionary<String, Dictionary<String, Double>> else { return }
-        guard let maxData = defaults.object(forKey: "maxData") as? Dictionary<String, Double> else { return }
+        guard let maxData = defaults.object(forKey: "maxData") as? Dictionary<String, String> else { return }
         guard let liftBlockData = defaults.object(forKey: "liftBlockData") as? Dictionary<String, Array<Dictionary<String, Any>>> else { return }
         guard let liftBlockTypeData = defaults.object(forKey: "liftBlockTypeData") as? Array<Dictionary<String, Any>> else { return }
         
         var liftBlockIndex = 0
         for blockType in liftBlockTypeData {
             let currentBlockId = blockType["id"] as! String
-            let currentBlockName = blockType["name"] as! String
             let numSets = blockType["num_sets"] as! Int
             workoutData[currentBlockId] = Array<String>()
 
             for setIndex in 0...numSets-1 {
                 let currentSetNumber = setIndex + 1;
-                guard let liftBlock = liftBlockData[currentBlockId] else { return }
+                guard let liftBlock = liftBlockData[currentBlockId] else { print("liftBlock failed"); return }
 
                 var liftBlockDataIndex = 0
                 for _ in liftBlock {
-                    guard let patternBlock = patternData[currentBlockId] else { return }
-                    guard let intensity = patternBlock["intensity"] else { return }
+                    guard let patternBlock = patternData[currentBlockId] else { print("patternBlock failed"); return }
+                    guard let intensity = patternBlock["intensity"] else { print("intensity failed"); return }
                     let liftType = liftBlock[liftBlockDataIndex]["lift_type"] as! String
                     let liftName = liftBlock[liftBlockDataIndex]["lift_name"] as! String
                     let hasPr = liftBlock[liftBlockDataIndex]["has_pr"] as! Bool
@@ -179,8 +176,8 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
 
                     if (hasPr) {
                         guard let liftMax = maxData[liftType] else { return }
-                        guard let weightPercentage = waveBlock["set_" + String(currentSetNumber) + "_percentage"] else { return }
-                        let liftWeight = LiftUtil().roundDownCalculation(value: Double(liftMax) * Double(weightPercentage))
+                        guard let weightPercentage = waveBlock["set_" + String(currentSetNumber) + "_percentage"] else { print("weightPercentage failed"); return }
+                        let liftWeight = LiftUtil().roundDownCalculation(value: Double(liftMax)! * Double(weightPercentage))
                         let lift = String(liftWeight) + " x " + String(reps) + " " + liftName
                          workoutData[currentBlockId]?.append(lift)
                     } else {
