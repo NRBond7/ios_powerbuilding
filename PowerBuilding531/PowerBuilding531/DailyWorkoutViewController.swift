@@ -67,6 +67,7 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
             let defaults = UserDefaults.standard
             let nextLift = LiftUtil().generateNextLiftDay(lastLift: lastLift)
             let nextLiftText = "Today - " + nextLift["liftName"]!
+            self.workoutDisplayText.text = nextLiftText
             self.pickerData.insert(nextLiftText, at: 0)
             
             defaults.set(nextLift, forKey: "nextLift")
@@ -181,8 +182,7 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
                         let lift = String(liftWeight) + " x " + String(reps) + " " + liftName
                          workoutData[currentBlockId]?.append(lift)
                     } else {
-                        let lift = String(reps) + " " + liftName
-                        workoutData[currentBlockId]?.append(lift)
+                        workoutData[currentBlockId]?.append(liftName)
                     }
 
                     liftBlockDataIndex = liftBlockDataIndex + 1
@@ -286,7 +286,13 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "conditioningCard")!  as! ConditioningCardCell
             cell.lift1.text = workoutData["conditioning"]?[0]
-            cell.lift2.text = workoutData["conditioning"]?[1]
+            let lift2Text: String
+            if workoutData["conditioning"]?.count ?? 0 > 1 {
+                lift2Text = workoutData["conditioning"]?[1] ?? ""
+            } else {
+                lift2Text = ""
+            }
+            cell.lift2.text = lift2Text
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainCard")!  as! CardTableViewCell
@@ -321,22 +327,26 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         let alertController = UIAlertController(title: "Upload workout?", message: "", preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "Upload", style: .default, handler: { action in
             print("handleFinishWorkout")
-//            let defaults = UserDefaults.standard
-//            let lift = defaults.dictionary(forKey: "nextLift")
-//            let key = self.user.uid
-//            let post: [String : String] = ["date": "10/08/2018",
-//                                           "lift_name": lift!["liftName"] as! String,
-//                                           "lift_type": lift!["liftType"] as! String,
-//                                            "lift_pr": String(100),
-//                                            "was_skipped": String(false)]
-//            self.databaseRef.child("lift_log").child(key).updateChildValues(post) {
-//                (error:Error?, ref:DatabaseReference) in
-//                if let error = error {
-//                    print("DailyWorkout - handleFinishWorkout - Data could not be saved: \(error).")
-//                } else {
-//                    print("DailyWorkout - handleFinishWorkout - Data saved successfully!")
-//                }
-//            }
+            let defaults = UserDefaults.standard
+            let lift = defaults.dictionary(forKey: "nextLift")
+            let date = Date()
+            let day = Calendar.current.component(.day, from: date)
+            let month = Calendar.current.component(.month, from: date)
+            let year = Calendar.current.component(.year, from: date)
+            let dateString = String(month) + "/" + String(day) + "/" + String(year)
+            let post: [String : String] = ["date": dateString,
+                                           "lift_name": lift!["liftName"] as! String,
+                                           "lift_type": lift!["liftType"] as! String,
+                                            "lift_pr": String(100),
+                                            "was_skipped": String(false)]
+            self.databaseRef.child("lift_log").child(self.user.uid).childByAutoId().updateChildValues(post) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    print("DailyWorkout - handleFinishWorkout - Data could not be saved: \(error).")
+                } else {
+                    print("DailyWorkout - handleFinishWorkout - Data saved successfully!")
+                }
+            }
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true)
