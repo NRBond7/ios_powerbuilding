@@ -20,7 +20,10 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var finishWorkoutFab: MDCFloatingButton!
     @IBOutlet weak var workoutHeaderText: UITextField!
     
-    var pickerData: [String] = [String]()
+    var workoutPicker: UIPickerView = UIPickerView()
+    
+    var pickerStrings: [String] = [String]()
+    var pickerTypes: [String] = [String]()
     var workoutData: Dictionary<String, Array<String>> = Dictionary<String, Array<String>>()
     var workoutSetData: [String] = [String]()
     var databaseRef: DatabaseReference!
@@ -44,19 +47,20 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
             var lastLift = ""
             
             if snapshot.childrenCount > 0 {
-                var workoutCount = 1.0;
+                var workoutCount = 1.0
                 for case let child as DataSnapshot in snapshot.children {
                     let val = child.value
                     if let childData = val as? Dictionary<String, String> {
                         let liftDate = childData["date"]
                         let liftName = childData["lift_name"]
                         let liftType = childData["lift_type"]
-                        let weekNumber = round(workoutCount / 4.0)
+                        let weekNumber = Int(Double(workoutCount / 4.0).rounded(.up))
                         
                         var workoutString = "Week " + String(weekNumber)
                         workoutString = workoutString + " " + liftName!
                         workoutString  = workoutString + " - " + liftDate!
-                        self.pickerData.append(workoutString)
+                        self.pickerStrings.insert(workoutString, at: 0)
+                        self.pickerTypes.insert(liftType!, at: 0)
                         lastLift = liftType!
                     }
                     
@@ -68,7 +72,8 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
             let nextLift = LiftUtil().generateNextLiftDay(lastLift: lastLift)
             let nextLiftText = "Today - " + nextLift["liftName"]!
             self.workoutDisplayText.text = nextLiftText
-            self.pickerData.insert(nextLiftText, at: 0)
+            self.pickerStrings.insert(nextLiftText, at: 0)
+            self.pickerTypes.insert(nextLift["liftType"]!, at: 0)
             
             defaults.set(nextLift, forKey: "nextLift")
             self.initPicker()
@@ -78,13 +83,14 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     
     func loadDataForDay(nextLift: Dictionary<String, String>) {
         workoutHeaderText.text = nextLift["liftName"]! + " Day"
+        workoutDisplayText.text = "Today - " + nextLift["liftName"]!
         populateLiftUI(nextLift: nextLift)
     }
     
     func populateLiftUI(nextLift: Dictionary<String, String>) {
         let picker = workoutDisplayText.inputView as! UIPickerView
         let index = picker.selectedRow(inComponent: 0)
-        let workoutNumber = pickerData.count - index
+        let workoutNumber = pickerStrings.count - index
         let weekNumber = Int(ceil(Double(workoutNumber) / 4.0))
         let wave = Int(floor(Double(weekNumber - 1) / 3.0 + 1))
 
@@ -207,8 +213,6 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func initPicker() {
-        let workoutPicker: UIPickerView
-        workoutPicker = UIPickerView()
         workoutPicker.backgroundColor = .white
         workoutPicker.showsSelectionIndicator = true
         workoutPicker.delegate = self
@@ -239,7 +243,7 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return pickerStrings.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -247,11 +251,14 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return pickerStrings[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        workoutDisplayText.text = pickerData[row]
+        let workout = LiftUtil().getLiftDictionary(liftType : pickerTypes[row])
+        workoutDisplayText.text = pickerStrings[row]
+        workoutHeaderText.text = workout["liftName"]! + " Day"
+        populateLiftUI(nextLift: workout)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -323,33 +330,34 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
     }
     
     @IBAction func handleFinishWorkout(_ sender: Any) {
-        // todo: upload workout
-        let alertController = UIAlertController(title: "Upload workout?", message: "", preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "Upload", style: .default, handler: { action in
-            print("handleFinishWorkout")
-            let defaults = UserDefaults.standard
-            let lift = defaults.dictionary(forKey: "nextLift")
-            let date = Date()
-            let day = Calendar.current.component(.day, from: date)
-            let month = Calendar.current.component(.month, from: date)
-            let year = Calendar.current.component(.year, from: date)
-            let dateString = String(month) + "/" + String(day) + "/" + String(year)
-            let post: [String : String] = ["date": dateString,
-                                           "lift_name": lift!["liftName"] as! String,
-                                           "lift_type": lift!["liftType"] as! String,
-                                            "lift_pr": String(100),
-                                            "was_skipped": String(false)]
-            self.databaseRef.child("lift_log").child(self.user.uid).childByAutoId().updateChildValues(post) {
-                (error:Error?, ref:DatabaseReference) in
-                if let error = error {
-                    print("DailyWorkout - handleFinishWorkout - Data could not be saved: \(error).")
-                } else {
-                    print("DailyWorkout - handleFinishWorkout - Data saved successfully!")
+        if (workoutPicker.selectedRow(inComponent: 0) == 0) {
+            let alertController = UIAlertController(title: "Upload workout?", message: "", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Upload", style: .default, handler: { action in
+                print("handleFinishWorkout")
+                let defaults = UserDefaults.standard
+                let lift = defaults.dictionary(forKey: "nextLift")
+                let date = Date()
+                let day = Calendar.current.component(.day, from: date)
+                let month = Calendar.current.component(.month, from: date)
+                let year = Calendar.current.component(.year, from: date)
+                let dateString = String(month) + "/" + String(day) + "/" + String(year)
+                let post: [String : String] = ["date": dateString,
+                                               "lift_name": lift!["liftName"] as! String,
+                                               "lift_type": lift!["liftType"] as! String,
+                                               "lift_pr": String(100),
+                                               "was_skipped": String(false)]
+                self.databaseRef.child("lift_log").child(self.user.uid).childByAutoId().updateChildValues(post) {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        print("DailyWorkout - handleFinishWorkout - Data could not be saved: \(error).")
+                    } else {
+                        print("DailyWorkout - handleFinishWorkout - Data saved successfully!")
+                    }
                 }
-            }
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alertController, animated: true)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertController, animated: true)
+        }
     }
     
     @IBAction func onLogoutClicked(_ sender: Any) {
