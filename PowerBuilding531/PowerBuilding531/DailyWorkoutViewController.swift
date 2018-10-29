@@ -178,11 +178,11 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
                     let liftType = liftBlock[liftBlockDataIndex]["lift_type"] as! String
                     let liftName = liftBlock[liftBlockDataIndex]["lift_name"] as! String
                     let hasPr = liftBlock[liftBlockDataIndex]["has_pr"] as! Bool
-                    guard let waveBlock = waveData[intensity] else { return }
+                    guard let waveBlock = waveData[intensity] else { print("waveBlock failed"); return }
                     let reps = Int(waveBlock["set_" + String(currentSetNumber) + "_reps"]!)
 
                     if (hasPr) {
-                        guard let liftMax = maxData[liftType] else { return }
+                        guard let liftMax = maxData[liftType] else { print("liftMax failed"); return }
                         guard let weightPercentage = waveBlock["set_" + String(currentSetNumber) + "_percentage"] else { print("weightPercentage failed"); return }
                         let liftWeight = LiftUtil().roundDownCalculation(value: Double(liftMax)! * Double(weightPercentage))
                         let lift = String(liftWeight) + " x " + String(reps) + " " + liftName
