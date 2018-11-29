@@ -45,6 +45,7 @@ class DailyWorkoutViewController: UIViewController, UIPickerViewDelegate,
         
         databaseRef.child("lift_log").child(user.uid).observe(.value) { snapshot in
             var lastLift = ""
+            self.pickerStrings.removeAll()
             
             if snapshot.childrenCount > 0 {
                 var workoutCount = 1.0

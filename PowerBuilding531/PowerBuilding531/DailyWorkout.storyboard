@@ -35,15 +35,12 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-BV-bf7">
-                                <rect key="frame" x="88.666666666666686" y="108" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="FBR-UU-1he"/>
-                                </constraints>
+                                <rect key="frame" x="36" y="108" width="303" height="30"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Deadlift - Today">
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -398,8 +395,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2cc-BV-bf7" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" constant="36" id="0GB-Es-tBY"/>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="trailing" secondItem="UxB-mo-ghr" secondAttribute="trailing" id="20I-7I-Knt"/>
-                            <constraint firstItem="2cc-BV-bf7" firstAttribute="centerX" secondItem="TQf-cp-pVb" secondAttribute="centerX" constant="1" id="32Y-xR-xw5"/>
                             <constraint firstAttribute="bottom" secondItem="yFo-cX-BCn" secondAttribute="bottom" constant="20" id="6gB-BC-zGa"/>
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" id="6kG-la-W2d"/>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" id="FOS-32-6aw"/>
@@ -409,6 +406,7 @@
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="top" secondItem="UxB-mo-ghr" secondAttribute="top" id="S0o-Tr-it5"/>
                             <constraint firstItem="MFJ-4d-Vba" firstAttribute="trailing" secondItem="UxB-mo-ghr" secondAttribute="trailing" id="VxS-5U-aWK"/>
                             <constraint firstItem="Sb3-b1-vgq" firstAttribute="top" secondItem="e3G-Nv-WBh" secondAttribute="bottom" constant="20" id="ZJE-QL-pfj"/>
+                            <constraint firstItem="UxB-mo-ghr" firstAttribute="trailing" secondItem="2cc-BV-bf7" secondAttribute="trailing" constant="36" id="pZZ-H1-mTB"/>
                             <constraint firstItem="2cc-BV-bf7" firstAttribute="top" secondItem="MFJ-4d-Vba" secondAttribute="bottom" constant="20" id="s8F-Oj-e1q"/>
                             <constraint firstItem="e3G-Nv-WBh" firstAttribute="leading" secondItem="UxB-mo-ghr" secondAttribute="leading" constant="20" id="vFa-tH-IPK"/>
                             <constraint firstItem="UxB-mo-ghr" firstAttribute="bottom" secondItem="Sb3-b1-vgq" secondAttribute="bottom" id="ycf-g1-Tgb"/>
